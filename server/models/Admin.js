@@ -2,9 +2,13 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
+const Order = require('./results');
 
-const userSchema = new Schema({
+function validateLicense(){
+
+}
+
+const adminSchema = new Schema({
   firstName: {
     type: String,
     required: true,
@@ -20,16 +24,34 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
+  medicalLicenseNumber:{
+    type     : Number,
+    required : true,
+    unique   : true,
+    validate : {
+      //medical number api or secret password
+    }
+  },
   password: {
     type: String,
     required: true,
     minlength: 5
   },
-  orders: [Order.schema]
+  results: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Result',
+    },
+  ],
+},
+{
+  toJSON: {
+    virtuals: true,
+  }
 });
 
 // set up pre-save middleware to create password
-userSchema.pre('save', async function(next) {
+adminSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -39,10 +61,10 @@ userSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function(password) {
+adminSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const Admin = mongoose.model('User', adminSchema);
 
-module.exports = User;
+module.exports = Admin;
