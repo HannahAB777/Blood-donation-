@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Order = require('./results');
+const Result = require('./results');
 
 function validateLicense(){
 
@@ -38,15 +38,13 @@ const adminSchema = new Schema({
     minlength: 5
   },
   results: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Result',
-    },
+   Result
   ],
 },
 {
   toJSON: {
     virtuals: true,
+    timestamps: true
   }
 });
 

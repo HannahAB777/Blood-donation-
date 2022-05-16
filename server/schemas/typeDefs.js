@@ -1,37 +1,22 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Category {
+  type Admin {
     _id: ID
-    name: String
+    firstName: String!
+    lastName: String!
+    email: String!
+    medicalLicenseNumber:Int!
+    password: String!
+    results: [Result]
   }
 
-  type Product {
+  type Result {
     _id: ID
-    name: String
-    description: String
-    image: String
-    quantity: Int
-    price: Float
-    category: Category
-  }
-
-  type Order {
-    _id: ID
-    purchaseDate: String
-    products: [Product]
-  }
-
-  type User {
-    _id: ID
-    firstName: String
-    lastName: String
-    email: String
-    orders: [Order]
-  }
-
-  type Checkout {
-    session: ID
+    patientFirstName: String!
+    patientLastName: String!
+    phoneNumber: Int!
+    createdAt: Float!
   }
 
   type Auth {
@@ -40,19 +25,13 @@ const typeDefs = gql`
   }
 
   type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
-    user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
+    results: [Result]
+    admin: Admin
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    addAdmin( _id: ID, firstName: String!, lastName: String!, email: String!, medicalLicenseNumber:Int!, password: String!): Auth
+    addResult(_id: ID, patientFirstName: String!, patientLastName: String!, phoneNumber: Int!, createdAt: Float!): Result
     login(email: String!, password: String!): Auth
   }
 `;
