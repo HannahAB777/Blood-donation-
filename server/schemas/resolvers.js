@@ -4,10 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    admin: async () => {
-      return await Admin.find({});
+    admin: async (parent, args, context) => {
+      if (context.user) {
+      return await Admin.findById({_id: context.user._id});
+      }
     },
-    Results: async() =>{
+    Results: async(parent, args, context) =>{
       return await Result.find({});
     }
     
