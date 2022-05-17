@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const resultSchema = new Schema({
-  PatientFirstName: {
+  patientFirstName: {
     type: String,
     required: true,
     trim: true
   },
-  PatientLastName: {
+  patientLastName: {
     type: String,
     required: true,
     trim: true
@@ -17,6 +17,10 @@ const resultSchema = new Schema({
     type: Number,
     required: true,
     //cellphone number validation
+  },
+  code:{
+    type: String,
+    required: true,
   },
   createdAt: {
     type: Date,
