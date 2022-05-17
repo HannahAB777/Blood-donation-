@@ -9,7 +9,6 @@ export const QUERY_ADMIN = gql`
     email
     medicalLicenseNumber
     password
-    results
     }
   }
 `;

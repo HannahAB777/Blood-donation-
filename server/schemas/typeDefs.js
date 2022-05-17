@@ -22,7 +22,7 @@ const typeDefs = gql`
 
   type Auth {
     token: ID
-    user: User
+    user: Admin
   }
 
   type Query {
@@ -31,8 +31,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addAdmin( _id: ID!, firstName: String!, lastName: String!, email: String!, medicalLicenseNumber:Int!, password: String!): Auth
-    addResult(_id: ID!, patientFirstName: String!, patientLastName: String!, phoneNumber: Int!, code: String!, createdAt: Float!): Result
+    addAdmin(firstName: String!, lastName: String!, email: String!, medicalLicenseNumber:Int!, password: String!): Auth
+    addResult(patientFirstName: String!, patientLastName: String!, phoneNumber: Int!, code: String!, createdAt: Float!): Result
     login(email: String!, password: String!): Auth
   }
 `;

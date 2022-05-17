@@ -28,9 +28,9 @@ const adminSchema = new Schema({
     type     : Number,
     required : true,
     unique   : true,
-    validate : {
-      //medical number api or secret password
-    }
+    //validate : {
+    //  //medical number api or secret password
+    //}
   },
   password: {
     type: String,
