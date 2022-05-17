@@ -11,39 +11,23 @@ export const LOGIN = gql`
   }
 `;
 
-export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
-      purchaseDate
-      products {
+export const ADD_ADMIN = gql`
+  mutation addAdmin( $_id: ID!, $firstName: String!, $lastName: String!, $email: String!, $medicalLicenseNumber: Int!, $password: String!) {
+    addAdmin(firstName: $firstName, lastName: $lastName, email: $email, medicalLicenseNumber: $medicalLicenseNumber, password: $password) {
+      token
+      user {
         _id
-        name
-        description
-        price
-        quantity
-        category {
-          name
-        }
+      }
       }
     }
   }
 `;
 
-export const ADD_USER = gql`
-  mutation addUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-  ) {
-    addUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-    ) {
-      token
-      user {
+export const ADD_RESULT = gql`
+mutation addResult($_id: ID!, $patientFirstName: String!, $patientLastName: String!, $phoneNumber: Int!, $code: String!, $createdAt: Float!) {
+  addResult(patientFirstName: $patientFirstName, patientLastName: $patientLastName, phoneNumber: $phoneNumber, code: $code, createdAt: $createdAt) {
+      Result
+       {
         _id
       }
     }

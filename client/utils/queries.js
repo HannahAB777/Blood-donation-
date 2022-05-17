@@ -1,21 +1,28 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_ADMIN = gql`
-  query allProfiles {
-    profiles {
+  query admin {
+    Admin {
       _id
-      name
-      skills
+    firstName
+    lastName
+    email
+    medicalLicenseNumber
+    password
+    results
     }
   }
 `;
 
 export const QUERY_RESULTS = gql`
-  query allProfiles {
-    profiles {
-      _id
-      name
-      skills
+  query results {
+    Result {
+    _id
+    patientFirstName
+    patientLastName
+    phoneNumber
+    code
+    createdAt
     }
   }
 `;

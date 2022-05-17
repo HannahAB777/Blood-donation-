@@ -34,6 +34,8 @@ const resultSchema = new Schema({
 }
 );
 
+//add a virtual for the amount of results
+
 const Result = mongoose.model('Result', resultSchema);
 
 module.exports = Result;
