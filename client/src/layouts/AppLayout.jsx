@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import AdminNav from '../Components/AdminNav';
+import Footer from '../Components/Footer';
 
 export default function AppLayout(props) {
 
@@ -16,14 +18,14 @@ export default function AppLayout(props) {
     <div>
     
     
-    <h1>App Navbar</h1>
+    <AdminNav></AdminNav>
 
 
 
     {props.children}
     
     
-    
+    <Footer></Footer>
     
     </div>
   )

@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import PublicNav from '../Components/PublicNav';
+import Footer from '../Components/Footer';
 
 export default function PublicLayout(props) {
   return (
     <div>
 
-        <h1>Public Nav bar here</h1>
+        <PublicNav></PublicNav>
 
 
         {props.children}
@@ -12,7 +14,7 @@ export default function PublicLayout(props) {
 
 
 
-        <h1>Footer</h1>
+        <Footer></Footer>
     
         
 
