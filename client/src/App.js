@@ -6,15 +6,25 @@ import EnterResult from './pages/app/EnterResult';
 import Resources from './pages/Resources';
 import SignUp from './pages/Signup';
 import Login from './pages/Login';
-import Contact from './pages/Contact';  
+import Contact from './pages/Contact'; 
+import PublicLayout from './layouts/PublicLayout';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import auth from '../utils/auth';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+  context: auth,
+});
+
 
 function App() {
   return (
-
+    <ApolloProvider client={client}>
     <main>
     
       <BrowserRouter>
-      
+      <PublicLayout>
 
         <Routes>
           <Route path="/" element={<Home/>} ></Route>
@@ -33,19 +43,16 @@ function App() {
 
           <Route path="/app/" element={<Home/>} ></Route>
 
-          <Route path="/app/resources" element={<Resources/>} ></Route>
-
-          <Route path="/app/contact" element={<Contact/>} ></Route>
-
-        
+          <Route path='*' element={<h1 className='display-2'>Wrong page!</h1>} />
         
         </Routes>
 
-      
+        </PublicLayout>
       
       </BrowserRouter>
     
     </main>
+    </ApolloProvider>
   );
 }
 

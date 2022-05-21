@@ -1,13 +1,14 @@
 import React from 'react';
 import PublicNav from '../Components/PublicNav';
 import Footer from '../Components/Footer';
+import PublicNav from '../Components/PublicNav';
 
 export default function PublicLayout(props) {
   return (
     <div>
 
         <PublicNav></PublicNav>
-
+    
 
         {props.children}
 
