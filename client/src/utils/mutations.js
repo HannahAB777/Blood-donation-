@@ -15,10 +15,8 @@ export const ADD_ADMIN = gql`
   mutation addAdmin($firstName: String!, $lastName: String!, $email: String!, $medicalLicenseNumber: Int!, $password: String!) {
     addAdmin(firstName: $firstName, lastName: $lastName, email: $email, medicalLicenseNumber: $medicalLicenseNumber, password: $password) {
       token
-      user {
-        _id
-      }
-      }
+      user 
+      
     }
   }
 `;
