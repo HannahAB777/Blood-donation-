@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
@@ -9,12 +8,11 @@ import Login from './pages/Login';
 import Contact from './pages/Contact'; 
 import PublicLayout from './layouts/PublicLayout';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import auth from '../utils/auth';
+
 
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
-  context: auth,
 });
 
 
@@ -22,9 +20,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
     <main>
-    
+    <PublicLayout>
       <BrowserRouter>
-      <PublicLayout>
+     
 
         <Routes>
           <Route path="/" element={<Home/>} ></Route>
@@ -41,15 +39,16 @@ function App() {
 
           <Route path="/app/enter-result" element={<EnterResult/>} ></Route>
 
-          <Route path="/app/" element={<Home/>} ></Route>
+          <Route path="/app/" element={<Home/>} ></Route>3
 
           <Route path='*' element={<h1 className='display-2'>Wrong page!</h1>} />
         
         </Routes>
 
-        </PublicLayout>
+        
       
       </BrowserRouter>
+      </PublicLayout>
     
     </main>
     </ApolloProvider>

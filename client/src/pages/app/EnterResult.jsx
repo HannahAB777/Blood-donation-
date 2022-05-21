@@ -1,11 +1,10 @@
-import React from 'react'
-import AppLayout from '../../layouts/AppLayout'
+import React from 'react';
 
 export default function EnterResult() {
   return (
-      <AppLayout>
+      
       
         <div>EnterResult</div>
-      </AppLayout>
+    
   )
 }
