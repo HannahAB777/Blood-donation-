@@ -6,16 +6,18 @@ import { ADD_ADMIN } from '../utils/mutations';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [addUser] = useMutation(ADD_ADMIN);
+  const [addAdmin] = useMutation(ADD_ADMIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUser({
+    const mutationResponse = await addAdmin({
       variables: {
         email: formState.email,
         password: formState.password,
         firstName: formState.firstName,
         lastName: formState.lastName,
+        medicalLicenseNumber: formState.medicalLicenseNumber,
+
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -63,6 +65,16 @@ function Signup(props) {
             name="email"
             type="email"
             id="email"
+            onChange={handleChange}
+          />
+          </div>
+          <div className="flex-row space-between my-2">
+          <label htmlFor="email">medical License Number:</label>
+          <input
+            placeholder="your license number here"
+            name="medicalLicenseNumber"
+            type="medicalLicenseNumber"
+            id="medicalLicenseNumber"
             onChange={handleChange}
           />
         </div>

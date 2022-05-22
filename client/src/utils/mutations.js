@@ -4,7 +4,7 @@ export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
-      admin {
+      user {
         _id
       }
     }
@@ -15,8 +15,7 @@ export const ADD_ADMIN = gql`
   mutation addAdmin($firstName: String!, $lastName: String!, $email: String!, $medicalLicenseNumber: Int!, $password: String!) {
     addAdmin(firstName: $firstName, lastName: $lastName, email: $email, medicalLicenseNumber: $medicalLicenseNumber, password: $password) {
       token
-      user 
-      
+      user
     }
   }
 `;
