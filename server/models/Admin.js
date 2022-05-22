@@ -25,7 +25,7 @@ const adminSchema = new Schema({
     unique: true
   },
   medicalLicenseNumber:{
-    type     : Number,
+    type     : String,
     required : true,
     unique   : true,
     //validate : {

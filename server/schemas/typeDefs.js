@@ -6,7 +6,7 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
-    medicalLicenseNumber:Int!
+    medicalLicenseNumber:String!
     password: String!
     results: [Result]
   }
@@ -31,8 +31,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addAdmin(firstName: String!, lastName: String!, email: String!, medicalLicenseNumber:Int!, password: String!): Auth
-    addResult(patientFirstName: String!, patientLastName: String!, phoneNumber: Int!, code: String!, createdAt: Float!): Result
+    addAdmin(firstName: String!, lastName: String!, email: String!, medicalLicenseNumber:String!, password: String!): Auth
+    addResult(patientFirstName: String!, patientLastName: String!, phoneNumber: Int!, code: String!, createdAt: Float!): Admin
     login(email: String!, password: String!): Auth
   }
 `;

@@ -5,7 +5,9 @@ import Auth from '../utils/auth';
 import { ADD_ADMIN } from '../utils/mutations';
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: '', password: '', firstName: '',
+  lastName: '',
+  medicalLicenseNumber: '' });
   const [addAdmin] = useMutation(ADD_ADMIN);
 
   const handleFormSubmit = async (event) => {
@@ -20,7 +22,7 @@ function Signup(props) {
 
       },
     });
-    const token = mutationResponse.data.addUser.token;
+    const token = mutationResponse.data.addAdmin.token;
     Auth.login(token);
   };
 
