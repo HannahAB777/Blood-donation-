@@ -14,14 +14,14 @@ export const QUERY_ADMIN = gql`
 `;
 
 export const QUERY_RESULT = gql`
-  query result {
-    Result {
-    _id
-    patientFirstName
-    patientLastName
-    phoneNumber
-    code
-    createdAt
-    }
+query result {
+  results {
+  _id
+  patientFirstName
+  patientLastName
+  phoneNumber
+  code
+  createdAt
   }
+}
 `;
