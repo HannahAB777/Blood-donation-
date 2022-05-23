@@ -12,6 +12,11 @@ export default function PublicNav() {
                </Link>
             </li>
             <li className="navOptions navList">
+            <Link className="navList link" to="/ourmission">
+            Our Mission
+             </Link>
+          </li>
+            <li className="navOptions navList">
               <Link className="navList link" to="/app/enter-result">
               Enter Results
                </Link>

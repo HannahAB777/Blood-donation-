@@ -40,9 +40,9 @@ export const ADD_RESULT = gql`
   mutation addResult(
     $patientFirstName: String!
     $patientLastName: String!
-    $phoneNumber: Int!
+    $phoneNumber: String!
     $code: String!
-    $createdAt: Float!
+    $createdAt: String!
   ) {
     addResult(
       patientFirstName: $patientFirstName

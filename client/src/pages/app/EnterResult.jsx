@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import Auth from '../../utils/auth';
+import Auth from '../../utils/Auth';
 import { ADD_RESULT} from '../../utils/mutations';
 
 export default function EnterResult() {
@@ -24,8 +23,12 @@ export default function EnterResult() {
 
       },
     });
-    const token = mutationResponse.data.addResult.token;
-    Auth.login(token);
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
   };
 
   const handleChange = (event) => {
@@ -62,9 +65,9 @@ export default function EnterResult() {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="phoneNumber">Phone:</label>
+          <label htmlFor="phoneNumber">Phone Number:</label>
           <input
-            placeholder="youremail@test.com"
+            placeholder="Phone Number"
             name="phoneNumber"
             type="phoneNumber"
             id="phoneNumber"
@@ -74,7 +77,7 @@ export default function EnterResult() {
           <div className="flex-row space-between my-2">
           <label htmlFor="phoneNumber">code:</label>
           <input
-            placeholder="your license number here"
+            placeholder="result code"
             name="code"
             type="code"
             id="code"
@@ -82,12 +85,8 @@ export default function EnterResult() {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
+        <label htmlFor="createdAt">select date :</label>
+        <input type="date" id="createdAt" name = "createdAt" min="2022-01-01"
             onChange={handleChange}
           />
         </div>

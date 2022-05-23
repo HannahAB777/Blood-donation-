@@ -14,7 +14,7 @@ const resultSchema = new Schema({
     trim: true
   },
   phoneNumber:{
-    type: Number,
+    type: String,
     required: true,
     //cellphone number validation
   },

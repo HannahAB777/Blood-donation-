@@ -7,7 +7,29 @@ import SignUp from './pages/Signup';
 import Login from './pages/Login';
 import Contact from './pages/Contact'; 
 import PublicLayout from './layouts/PublicLayout';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import OurMission from './pages/OurMission';
+import { ApolloClient, ApolloProvider, InMemoryCache, ApolloLink, createHttpLink, HttpLink  } from '@apollo/client';
+import React from 'react';
+import Auth from "./utils/Auth";
+
+// Construct our main GraphQL API endpoint
+const httpLink = new HttpLink({ uri: '/graphql' });
+
+const authLink = new ApolloLink((operation, forward) => {
+  // Retrieve the authorization token from local storage.
+  const token = localStorage.getItem('id_token');
+
+  // Use the setContext method to set the HTTP headers.
+  operation.setContext({
+    headers: {
+      authorization: token ? `Bearer ${token}` : ''
+    }
+  });
+
+  // Call the next link in the middleware chain.
+  return forward(operation);
+});
+
 
 
 const client = new ApolloClient({
@@ -24,6 +46,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home/>} ></Route>
+          <Route path="/ourmission" element={<OurMission/>} ></Route>
 
           <Route path="/resources" element={<Resources/>} ></Route>
 
@@ -37,7 +60,7 @@ function App() {
 
           <Route path="/app/enter-result" element={<EnterResult/>} ></Route>
 
-          <Route path="/app/" element={<Home/>} ></Route>3
+          <Route path="/app/" element={<Home/>} ></Route>
 
           <Route path='*' element={<h1 className='display-2'>Wrong page!</h1>} />
         
