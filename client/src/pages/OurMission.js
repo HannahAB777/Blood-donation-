@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function OurMission() {
   return (
-    <div>OurMission</div>
+    <div>OurMission is to...</div>
   )
 }

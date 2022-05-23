@@ -15,7 +15,7 @@ export const QUERY_ADMIN = gql`
 
 export const QUERY_RESULT = gql`
   query result {
-    Result {
+    result {
     _id
     patientFirstName
     patientLastName

@@ -10,7 +10,8 @@ const resolvers = {
       }
     },
     result: async(parent, args, context) =>{
-      return await Result.find({});
+      const results = await Result.find();
+      return results.length;
     }
     
   },

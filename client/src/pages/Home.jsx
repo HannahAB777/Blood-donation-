@@ -6,6 +6,8 @@ export default function Home() {
   const { loading, data } = useQuery(QUERY_RESULT);
   const numberOfResults = data?.length || [];
 
+  console.log(data);
+
   return (
     <main>
       <div className="flex-row justify-center">

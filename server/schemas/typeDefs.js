@@ -27,7 +27,7 @@ const typeDefs = gql`
 
   type Query {
     admin: Admin
-    results: [Result]
+    result: [Result]
   }
 
   type Mutation {

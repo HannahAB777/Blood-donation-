@@ -23,7 +23,9 @@ export default function EnterResult() {
 
       },
     });
-  
+   console.log(mutationResponse );
+
+
   };
 
   const handleChange = (event) => {
