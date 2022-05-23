@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
+import css from './PublicNav.css';
 
 export default function PublicNav() {
   return (

@@ -4,9 +4,8 @@ import { useQuery} from '@apollo/client';
 
 export default function Home(props) {
   const { loading, data } = useQuery(QUERY_RESULT);
-  const numberOfResults = data?.result.id || [];
+  const numberOfResults = data?.result || [];
 
-  console.log(data);
   console.log(numberOfResults);
 
   return (
