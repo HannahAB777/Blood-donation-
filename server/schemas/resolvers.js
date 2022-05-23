@@ -11,7 +11,7 @@ const resolvers = {
     },
     result: async(parent, args, context) =>{
       const results = await Result.find();
-      return results.length;
+      return results;
     }
     
   },
