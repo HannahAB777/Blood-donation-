@@ -30,13 +30,11 @@ const authLink = new ApolloLink((operation, forward) => {
   return forward(operation);
 });
 
-
-
 const client = new ApolloClient({
-  uri: '/graphql',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
+  
 });
-
 
 function App() {
   return (

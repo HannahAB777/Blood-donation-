@@ -23,12 +23,7 @@ export default function EnterResult() {
 
       },
     });
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
+  
   };
 
   const handleChange = (event) => {
