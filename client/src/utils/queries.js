@@ -13,8 +13,8 @@ export const QUERY_ADMIN = gql`
   }
 `;
 
-export const QUERY_RESULTS = gql`
-  query results {
+export const QUERY_RESULT = gql`
+  query result {
     Result {
     _id
     patientFirstName

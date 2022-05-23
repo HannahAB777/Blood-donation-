@@ -9,7 +9,7 @@ const resolvers = {
       return await Admin.findById({_id: context.user._id});
       }
     },
-    results: async(parent, args, context) =>{
+    result: async(parent, args, context) =>{
       return await Result.find({});
     }
     
