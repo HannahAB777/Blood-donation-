@@ -32,7 +32,7 @@ const typeDefs = gql`
 
   type Mutation {
     addAdmin(firstName: String!, lastName: String!, email: String!, medicalLicenseNumber:String!, password: String!): Auth
-    addResult(patientFirstName: String!, patientLastName: String!, phoneNumber: String!, code: String!, createdAt: String!): Admin
+    addResult(patientFirstName: String!, patientLastName: String!, phoneNumber: String!, code: String!, createdAt: String!): Result
     login(email: String!, password: String!): Auth
   }
 `;

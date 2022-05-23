@@ -51,8 +51,8 @@ export const ADD_RESULT = gql`
       code: $code
       createdAt: $createdAt
     ) {
-      _id
-      email
+      patientFirstName
+      phoneNumber
     }
   }
 `;
